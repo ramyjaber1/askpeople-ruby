@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Inbox < ApplicationRecord
-  MIN_NAME = 6
+  belongs_to :user
+    MIN_NAME = 6
   MAX_NAME = 100
 
   validates :name, presence: true
