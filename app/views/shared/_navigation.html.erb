@@ -1,3 +1,10 @@
+
+<center>
+<h1>
+<%= link_to_unless_current Rails.application.class.module_parent.name ,root_path %>
+</h1>
+<%= link_to_unless_current 'Inboxes' ,inboxes_path %>
+<%= link_to_unless_current 'New Inboxes' ,new_inbox_path %>
 <% if signed_in? %>
       <%=link_to current_user.email, edit_user_registration_path%>
       <%=button_to "Log Out", destroy_user_session_path , method: :delete ,
@@ -6,12 +13,6 @@
       <%=link_to "Log in", new_user_session_path%>
       <%=link_to "Register", new_user_registration_path%>
     <%end%> 
-<center>
-<h1>
-<%= link_to_unless_current Rails.application.class.module_parent.name ,root_path %>
-</h1>
-<%= link_to_unless_current 'Inboxes' ,inboxes_path %>
-<%= link_to_unless_current 'New Inboxes' ,new_inbox_path %>
 </center>
 <hr>
   
