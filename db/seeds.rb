@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -8,7 +10,7 @@
 
 Inbox.delete_all
 
-5.times do 
-    faker_name = Faker::Quote.famous_last_words
-    Inbox.create(name: faker_name)
+5.times do
+  faker_name = Faker::Quote.famous_last_words
+  Inbox.create(name: faker_name)
 end
