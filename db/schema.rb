@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_204638) do
   enable_extension "plpgsql"
 
   create_table "inboxes", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
