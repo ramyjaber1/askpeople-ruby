@@ -1,10 +1,20 @@
 <div id="<%= dom_id inbox %>" class="scaffold_record">
   <p>
     <strong>Name:</strong>
-    <%= inbox.name %>
+    <h3><%=link_to  inbox.name,inbox %></h3>
   </p>
+  <%= link_to "Edit this inboxes", edit_inbox_path(inbox) %></p>
+  <%= button_to "Destroy this inbox", inbox_path(inbox), method: :delete %>
+  
+  Message: 
+    <%= inbox.messages_count%>
+    <br>
+  
+  <i>
+  by
   <%= inbox.user.email%>
-   <p>
-      <%= link_to "Show this inbox", inbox %>
-    </p>
+  on
+  <%= inbox.created_at.strftime('%d/%b/%Y')%>
+  </i>
+   
 </div>

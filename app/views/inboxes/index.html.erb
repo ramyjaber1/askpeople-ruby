@@ -1,4 +1,4 @@
-<h1>Inboxes</h1>
+<h1>Inboxes: <%= @inboxes.count %></h1>
 
 <div id="inboxes">
   <% @inboxes.each do |inbox| %>
@@ -7,4 +7,3 @@
   <% end %>
 </div>
 
-<%= link_to "New inbox", new_inbox_path %>
