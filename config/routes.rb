@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :messages
   devise_for :users
-  resources :inboxes
+  resources :inboxes do
+    resources :messages, only: %i[new create destroy] , module: :inboxes
+  end
+
   root 'static_pages#landing_page'
   get 'pricing', to: 'static_pages#pricing'
   get 'privacy', to: 'static_pages#privacy'

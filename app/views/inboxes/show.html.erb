@@ -3,5 +3,13 @@
   <%= link_to "Edit this inbox", edit_inbox_path(@inbox) %> |
   <%= link_to "Back to inboxes", inboxes_path %>
 
-  <%= button_to "Destroy this inbox", @inbox, method: :delete %>
+  <%= button_to "Destroy this inbox", inbox_path(@inbox), method: :delete %>
 </div>
+<hr>
+
+<h1>
+Messages <%=@inbox.messages.length%> 
+</h1>
+
+<%= link_to 'New Message' , [:new,@inbox, :message]%>
+<%= render partial: 'inboxes/messages/message',collection: @inbox.messages%>

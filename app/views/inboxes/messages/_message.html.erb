@@ -1,0 +1,17 @@
+<div id="<%= dom_id message %>">
+  <p>
+    <strong>Body:</strong>
+    <%= simple_format(message.body) %>
+  </p>
+
+  <p>
+    <strong>Inbox:</strong>
+    <%= link_to message.inbox.name ,message.inbox %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= message.user.email %>
+  </p>
+<%= button_to "Destroy ", inbox_message_path(@inbox,message), method: :delete %>
+</div>
