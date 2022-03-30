@@ -1,6 +1,6 @@
 class Inboxes::MessagesController < ApplicationController
   before_action :set_inbox
-  before_action :set_message, only: %i[destroy ]
+  before_action :set_message, only: %i[destroy, upvote ]
 
   # GET /messages or /messages.json
   def index
@@ -45,6 +45,18 @@ class Inboxes::MessagesController < ApplicationController
       format.html { redirect_to @inbox, notice: "Message was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    flash[:notice] = 'upvoted'
+    if current_user.voted_up_on? @message
+        @message.downvote_from current_user
+    elsif current_user.voted_down_on? @message
+        @message.liked_by current_user
+    else
+      @message.liked_by current_user
+    end 
+    redirect_to @inbox
   end
 
   private

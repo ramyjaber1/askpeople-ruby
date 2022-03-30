@@ -8,4 +8,5 @@ class Message < ApplicationRecord
   validates :body, presence: true
   # validates :body, uniqueness:{scope: :inbox_id}
   validates :body, length: { in: MIN_NAME..MAX_NAME }
+  acts_as_votable
 end
